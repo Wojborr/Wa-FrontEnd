@@ -1,0 +1,91 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="center">
+  <h1 *ngIf="client">Hello {{client.username}} {{client.usersurname}}</h1>
+</div>
+
+  <table *ngIf="client">
+    <caption>Account information</caption>
+    <tr>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Money</th>
+    </tr>
+    <tr>
+      <td>
+        {{client.username}}
+      </td>
+      <td>
+        {{client.usersurname}}
+      </td>
+      <td>
+        {{client.wallet}}
+      </td>
+
+    </tr>
+  </table>
+  <table *ngIf="movies">
+    <caption> Movies to buy</caption>
+    <tr>
+      <th>Nazwa</th>
+      <th>Reży</th>
+      <th>Data premiery</th>
+      <th>Cena</th>
+      <th>Ilosc</th>
+      <th>Typ</th>
+      <th>Buy</th>
+    </tr>
+    <tr *ngFor="let movie of movies">
+      <td>
+        {{movie.moviename}}
+      </td>
+      <td>
+        {{movie.director}}
+      </td>
+      <td>
+        {{movie.productionYear}}
+      </td>
+      <td>
+        {{movie.payment}}
+      </td>
+      <td>
+        {{movie.quantity}}
+      </td>
+      <td>
+        {{movie.type}}
+      </td>
+      <td>
+        <button (click)="buyMovie(movie)">Buy</button>
+      </td>
+    </tr>
+  </table>
+  <table *ngIf="client">
+    <caption> My Movies</caption>
+    <tr>
+      <th>Nazwa</th>
+      <th>Reży</th>
+      <th>Data premiery</th>
+      <th>Typ</th>
+      <th>Refound</th>
+    </tr>
+    <tr *ngFor="let movie of client.movies">
+      <td>
+        {{movie.moviename}}
+      </td>
+      <td>
+        {{movie.director}}
+      </td>
+      <td>
+        {{movie.productionYear}}
+      </td>
+      <td>
+        {{movie.type}}
+      </td>
+      <td>
+        <button (click)="refoundMovie(movie)">Refound Movie</button>
+      </td>
+    </tr>
+  </table>
+
+
+
